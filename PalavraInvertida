@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ReverterString
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Inicializamos a palavra e solicitamos para o usuário digita-la
+            string palavra = "";
+            Console.WriteLine("Digite a palavra desejada");
+            palavra = Console.ReadLine();
+
+            //Chamamos o metodo criado de inversão da palavra passando a palavra digitada como parametro
+            string palavra_invertida = reverso(palavra);
+
+            //Imprimimos a palavra invertida
+            Console.WriteLine("A palavra invertida fica: " + palavra_invertida);
+            Console.ReadLine();
+        }
+
+        public static string reverso(string palavra)
+        {
+            //Inicializamos a variavel que será atribuido nossa palavra invertida
+            string invertido = "";
+
+            //Criamos um looping inverso para a variavel "i", que será nosso index, começar do final da palavra e não do começo dela
+            for (int i = palavra.Length - 1; i >= 0; i--)
+            {
+                //atribuimos o valor do index da palavra a variavel e concatenamos com ela mesma para ir formando a palavra invertida
+                invertido += palavra[i];
+            }
+            //Por fim, retornamos a palavra invertida como o valor da função
+            return invertido;
+        }
+    }
+}
