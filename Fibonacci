@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Fibonacci
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Definimos as variaveis solicitadas 
+            int anterior = 0;
+            int atual = 1;
+            int proximo = 0;
+
+            //Aqui colocamos para o usuário definir o limite de Fibonacci desejado para o programa não contar até o infinito
+            Console.WriteLine("Defina o limite de Fibonacci");
+            //Colocamos um convert.toint32 no input pois estou utilizando o .Net Framework 4.7.2 e ele não possui suporte para definir diretamente sem a conversão
+            int limite = Convert.ToInt32(Console.ReadLine());
+
+            //Colocamos para o usuário definir qual número ele quer encontrar
+            Console.WriteLine("Defina o número que você quer encontrar na sequencia de Fibonacci");
+            int numero_desejado = Convert.ToInt32(Console.ReadLine());
+
+            //Declaramos uma lista de string para armazenar os numeros e futuramente utilizarmos a função "Contains" da List<string> para executarmos a verificação
+            List<string> numeros_fibonacci = new List<string>();
+
+            //Condição para o numero atual não ultrapassar o limite estipulado
+            while (atual < limite)
+            {
+                //Adicionamos a variavel "proximo" na lista de string utilziando o String.Join para conseguirmos armazenar um inteiro em uma lista de string para realizarmos a verificação posteriormente
+                numeros_fibonacci.Add(String.Join("", proximo));
+                //Executamos a lógica de Fibonacci
+                proximo = anterior + atual;
+                anterior = atual;
+                atual = proximo;
+
+                //Verificamos se o numero digitado pelo usuário para encontra-lo na lista existe nela
+                if (numeros_fibonacci.Contains(String.Join("", numero_desejado)))
+                {
+                    //Se existir, informamos o usuario que existe e paramos o loop
+                    Console.WriteLine("O número desejado existe na sequencia de Fibonacci!");
+                    break;                    
+                }
+            }
+            Console.ReadLine();
+        }
+    }
+}
