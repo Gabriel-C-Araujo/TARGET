@@ -1,0 +1,26 @@
+using System;
+
+namespace SOMA
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        //definindo as váriaveis citadas no exercico
+            int INDICE = 13;
+            int SOMA = 0;
+            int K = 0;
+            
+        //Adicionando a condição imposta de que, enquanto o K for menor que o Indice, irá executar o código em questão
+            while(K < INDICE)
+            {
+                K = K + 1;
+                SOMA = SOMA + K;
+            }
+            
+        //Impressão do final da Soma, sendo igual a 91
+            Console.WriteLine(SOMA);
+            Console.ReadLine();
+        }
+    }
+}
